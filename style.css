@@ -1,0 +1,89 @@
+:root {
+    --main-color: rgb(226, 19, 0);
+    --sec-color: rgb(254, 186, 0);
+    --background-color: #f4f4f4;
+    --card-background: #fff;
+    --card-border: #ddd;
+    --loading-background: rgba(255, 255, 255, 0.8);
+    --spinner-border: rgba(0, 0, 0, 0.3);
+    --spinner-top-border: var(--main-color); /* Use main color for spinner top border */
+    --text-color: #000; /* Use main color for text */
+    --message-background: var(--sec-color); /* Use secondary color for message background */
+    --message-text-color: #fff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 20px;
+}
+
+.card {
+    position: relative;
+    background-color: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 15px;
+    font-size: 24px;
+    letter-spacing: 8px;
+    color: var(--text-color);
+}
+
+.card.copied{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        font-size: 18px;
+        letter-spacing: 5px;
+        text-align: center;
+    }
+}
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--loading-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.spinner {
+    border: 8px solid var(--spinner-border);
+    border-top: 8px solid var(--spinner-top-border);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--message-background);
+    color: var(--message-text-color);
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
